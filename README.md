@@ -1,8 +1,8 @@
-#Haque_2207081_GPACalculatorBuilder
+# Haque_2207081_GPACalculatorBuilder
 
 A simple JavaFx Application to calculate GPA 
 
-##Overview
+## Overview
 
 This project is a lightweight JavaFX application designed to help students quickly calculate their Grade Point Average (GPA).
 It provides an intuitive interface where users can enter course names, course code, credits, course teachers name and grades, and instantly receive the calculated GPA.
