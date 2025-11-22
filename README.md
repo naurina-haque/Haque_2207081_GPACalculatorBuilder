@@ -16,7 +16,7 @@ Simple, clean JavaFX UI
 Real-time recalculation when entries change
 
 ## Project Structure
-
+```
 Haque_2207081_GPACalculatorBuilder
 │
 ├── .idea/
