@@ -68,7 +68,7 @@ public class ResultController {
         resultTable.setItems(tableData);
 
     }
-git
+
     private double convertGradeToPoint(String grade) {
         if (grade == null) return 0.0;
 
