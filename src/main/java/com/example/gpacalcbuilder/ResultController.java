@@ -1,16 +1,13 @@
 package com.example.gpacalcbuilder;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import javafx.stage.Stage;
+
 import java.util.List;
 
 public class ResultController {
@@ -36,7 +33,6 @@ public class ResultController {
     private void initialize() {
 
 
-        // Setup Table Columns
         courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
         courseCodeColumn.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
         teacher1Column.setCellValueFactory(new PropertyValueFactory<>("teacher1"));
@@ -72,36 +68,23 @@ public class ResultController {
         resultTable.setItems(tableData);
 
     }
-
+git
     private double convertGradeToPoint(String grade) {
         if (grade == null) return 0.0;
 
         switch (grade) {
-            case "A+": return 4.0;
-            case "A": return 4.0;
-            case "A-": return 3.7;
-            case "B+": return 3.3;
-            case "B": return 3.0;
-            case "B-": return 2.7;
-            case "C+": return 2.3;
-            case "C": return 2.0;
-            case "D": return 1.0;
-            case "F": return 0.0;
+            case "A+": return 4.00;
+            case "A": return 3.75;
+            case "A-": return 3.50;
+            case "B+": return 3.25;
+            case "B": return 3.00;
+            case "B-": return 2.75;
+            case "C+": return 2.50;
+            case "C": return 2.25;
+            case "D": return 2.00;
+            case "F": return 0.00;
             default: return 0.0;
         }
     }
 
-    @FXML
-    private void handleBack() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("course-entry.fxml"));
-            Stage stage = (Stage) resultTable.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Add Courses - GPA Calculator");
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

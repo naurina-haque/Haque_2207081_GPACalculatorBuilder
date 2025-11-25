@@ -85,6 +85,7 @@ public class CourseController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("result.fxml"));
             Parent root = loader.load();
 
+
             ResultController resultController = loader.getController();
             resultController.setCourses(new ArrayList<>(allCourses));
 
@@ -100,7 +101,7 @@ public class CourseController {
     }
 
     private void updateCalculateButton() {
-        if (currentTotalCredits >= requiredTotalCredits) {
+        if (currentTotalCredits == requiredTotalCredits) {
             calculateGPAButton.setDisable(false);
             calculateGPAButton.setText("Calculate GPA (" + currentTotalCredits + "/" + requiredTotalCredits + " credits)");
             calculateGPAButton.setStyle("-fx-background-color: #27ae60; -fx-text-fill: white;");

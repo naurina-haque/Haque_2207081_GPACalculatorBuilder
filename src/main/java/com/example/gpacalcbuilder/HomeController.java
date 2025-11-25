@@ -18,7 +18,6 @@ public class HomeController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("course.fxml")));
 
         Scene scene = new Scene(root);
-        EventObject event;
         Stage stage = (Stage) (startButton) .getScene().getWindow();
         stage.setTitle("GPA Calculator");
         stage.setScene(scene);
