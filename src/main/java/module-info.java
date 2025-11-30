@@ -11,6 +11,9 @@ module com.example.gpacalcbuilder {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires javafx.graphics;
+    requires java.logging;
+    requires java.sql;
+
 
     opens com.example.gpacalcbuilder to javafx.fxml;
     exports com.example.gpacalcbuilder;

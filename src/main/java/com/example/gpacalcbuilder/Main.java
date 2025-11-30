@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class Main extends Application {
+    private Db db=new Db();
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
@@ -17,6 +18,7 @@ public class Main extends Application {
         stage.setTitle("GPA Calculator");
         stage.setScene(scene);
         stage.show();
+        db.getconnection();
     }
 
 

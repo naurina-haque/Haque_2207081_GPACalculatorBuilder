@@ -11,10 +11,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CourseController {
+
+    private Db db=new Db();
 
     @FXML private TextField courseNameField;
     @FXML private TextField courseCodeField;
@@ -45,7 +49,7 @@ public class CourseController {
     }
 
     @FXML
-    private void handleAddCourse() {
+    private void handleAddCourse() throws SQLException {
         String courseName = courseNameField.getText();
         String courseCode = courseCodeField.getText();
         String creditText = creditField.getText();
@@ -72,6 +76,9 @@ public class CourseController {
         } catch (NumberFormatException e) {
             showAlert("Error", "Please enter valid credit hours!");
         }
+        db.getconnection();
+        db.insertdata(courseName,courseCode,creditText,teacher1,teacher2,grade);
+        db.close();
     }
 
     @FXML
@@ -101,7 +108,7 @@ public class CourseController {
     }
 
     private void updateCalculateButton() {
-        if (currentTotalCredits == requiredTotalCredits) {
+        if (currentTotalCredits >= requiredTotalCredits) {
             calculateGPAButton.setDisable(false);
             calculateGPAButton.setText("Calculate GPA (" + currentTotalCredits + "/" + requiredTotalCredits + " credits)");
             calculateGPAButton.setStyle("-fx-background-color: #27ae60; -fx-text-fill: white;");
